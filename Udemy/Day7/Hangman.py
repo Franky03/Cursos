@@ -2,9 +2,6 @@ import random
 from words import words
 from hang_visual import lives_visual_dict
 
-def app(lista, list2):
-    for c in range(0, len(list2)):
-        lista.append('_')
 
 while True:
     life=6
@@ -14,18 +11,49 @@ while True:
     letters= []
     for l in word:
         letters.append(l)
-    print(word)
-    tabe=[]
-    app(tabe, letters)
-    print(tabe)
-    while life>0:
+    #print(word)
+    display= []
+    word_length= len(letters)
+    for i in range(0, word_length):
+        display.append('_')
+    print(display)
+    already= []
+    while display != letters:
+        if life==0:
+            break
         guess= str(input("Guess a letter: ")).upper()
-        if guess in letters:
-            pos= letters.index(guess)
-            tabe[pos]= guess
-            print(tabe)
+        if guess in already:
+            if guess in display:
+                print(f"You already guessed {guess}.")
+            else:
+                print(f"You already typed, {guess} is not in the word.")
         else:
-            print(False)
-    num= int(input('NUM: '))
-    if num==0:
+            for position in range(word_length):
+                letter= word[position]
+                if letter == guess:
+                    display[position] =letter 
+            if guess not in letters:
+                life -= 1
+                print(f"You guessed {guess}, that's not in the word. You lose a life.")
+                print(lives_visual_dict[life])
+                if life==0:
+                    break
+            else:
+                print(lives_visual_dict[life])
+            print(f"Lifes: {life}")
+            print(display)
+            already.append(guess)
+    if life>0:
+        print("YOU WON")
+    else:
+        print(f"The word was: {word}!\n")
+        print("YOU LOSE")
+    while True:
+        quest= str(input("Want to play again ? [Y/N]: ")).upper().strip()[0]
+        if quest in 'YyNn':
+            break
+        else:
+            print("Type a valid answer!")
+    if quest in 'Nn':
+        print("END")
         break
