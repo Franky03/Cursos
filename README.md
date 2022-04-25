@@ -1,4 +1,8 @@
 # CursoPython
- Repositório do meu progresso no curso em vídeo de python <br/>
- Finalizado no dia 17/04/2022 <br/>
-Continuação Udemy
+ My progress's repository in "Curso em Video- Python" <br/>
+ Finished in 17/04/2022 <br/>
+ 
+ Udemy/ 100DaysofCode Projects: <br/>
+  * [Hangman](https://github.com/Franky03/Cursos/tree/main/Udemy/Day7/Hangman.py)
+  * [Ceasar Cipher](https://github.com/Franky03/Cursos/blob/main/Udemy/Day8.py)
+  * ...
