@@ -51,8 +51,10 @@ while True:
         opc='*/'
     print(f"{num1} {opc} {num2}= {result}")
     while True:
-        resp= str(input(f"Digite 'y' para continuar calculando com {result} ou digite 'n' para um novo calculo: ")).lower().strip()
-        if resp=='y' or resp=='n':
+        resp= str(input(f"Digite 'y' para continuar calculando com {result}, digite 'n' para um novo calculo ou digite 's' para sair: ")).lower().strip()
+        if resp=='y' or resp=='n' or resp=='s':
             break
         else:
             print("ERROR")
+    if resp=='s':
+        break
