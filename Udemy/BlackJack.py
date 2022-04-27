@@ -26,19 +26,29 @@ def total(turn):
     return total
 
 def compare(score_p, score_d):
+    global wins
+    global loses
+    global draws
     if score_p==score_d:
+        draws+=1
         return 'Draw!'
     elif score_p==0:
+        wins+=1
         return "You Win with a BlackJack!"
     elif score_d==0:
+        loses+=1
         return 'You Lose, dealer has a BlackJack!'
     elif score_p>21:
+        loses+=1
         return 'You went over ,You Lose!'
     elif score_d>21:
+        wins+=1
         return 'Dealer went over, You Win!'
     elif score_p> score_d:
+        wins+=1
         return "You Win!"
     else:
+        loses+=1
         return "You Lose!"
 
 def emb(text):
@@ -50,7 +60,9 @@ def emb(text):
     print()
 
 #Principal Program
-
+wins=0
+loses=0
+draws=0
 while True:
     baralho=[2,3,4,5,6,7,8,9,10,2,3,4,5,6,7,8,9,10,2,3,4,5,6,7,8,9,10,2,3,4,5,6,7,8,9,10,'J','Q','K','A','J','Q','K','A','J','Q','K','A','J','Q','K','A',]
     dealer= []
@@ -96,7 +108,8 @@ while True:
         else:
             print("ERROR")
     if resp=='N':
-        print("END")
+        print('--'*10)
+        print(f"Total wins: {wins}\nTotal loses: {loses}\nTotal draws: {draws}\nEND")
         break
     else:
         player.clear()
