@@ -7,4 +7,5 @@
   * [Ceasar Cipher](https://github.com/Franky03/Cursos/blob/main/Udemy/Day8.py)
   * [BlackJack](https://github.com/Franky03/Cursos/blob/main/Udemy/BlackJack.py)
   * [HigherLower](https://github.com/Franky03/Cursos/blob/main/Udemy/HigherLower.py)
+  * [Coffee Machine](https://github.com/Franky03/Cursos/blob/main/Udemy/CoffeMachine.py)
   * ...
