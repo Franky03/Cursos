@@ -1,5 +1,6 @@
 from datetime import datetime
 from random import *
+from prettytable import PrettyTable
 
 class Pessoa:
     ano_atual= int(datetime.strftime(datetime.now(), "%Y"))
@@ -126,12 +127,38 @@ class A:
         pass
         # self.vc= 321
 
-a1= A()
-a2= A()
-A.vc= 'Alterado'
-a1.vc=321
-print(a1.__dict__)
-print(a2.__dict__)
-print(a1.vc)
-print(a2.vc)
-print(A.vc)
+# a1= A()
+# a2= A()
+# A.vc= 'Alterado'
+# a1.vc=321
+# print(a1.__dict__)
+# print(a2.__dict__)
+# print(a1.vc)
+# print(a2.vc)
+# print(A.vc)
+
+class BaseDeDado:
+    def __init__(self):
+        self.__dados= {}
+
+    def lista_clientes(self):
+        table= PrettyTable()
+        table.field_names= ['ID', 'Clientes']
+        for k, v in self.__dados['clientes'].items():
+            table.add_row([k, v])
+        print(table)
+    def inserir_cliente(self, id, nome):
+        if 'clientes' not in self.__dados:
+            self.__dados['clientes']= {id: nome}
+        else:
+            self.__dados['clientes'].update({id: nome})
+    def remover_cliente(self, id):
+        del self.__dados['clientes'][id]
+
+bd= BaseDeDado()
+bd.inserir_cliente(1, 'Otávio')
+bd.inserir_cliente(2, 'Rose')
+bd.inserir_cliente(3, 'Marcelo')
+bd.inserir_cliente(4, 'Julio')
+bd.remover_cliente(3)
+bd.lista_clientes()
