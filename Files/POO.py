@@ -119,3 +119,19 @@ p2= Produto('CANECA', 'R$15')
 # p2.desconto(10)
 print(p2.preco)
 print(p2.nome)
+
+class A:
+    vc=123
+    def __init__(self):
+        pass
+        # self.vc= 321
+
+a1= A()
+a2= A()
+A.vc= 'Alterado'
+a1.vc=321
+print(a1.__dict__)
+print(a2.__dict__)
+print(a1.vc)
+print(a2.vc)
+print(A.vc)
