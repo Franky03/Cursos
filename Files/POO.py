@@ -1,6 +1,5 @@
 from datetime import datetime
 from random import *
-from matplotlib.pyplot import table
 from prettytable import PrettyTable
 
 class Pessoa:
